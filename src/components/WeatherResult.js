@@ -13,8 +13,8 @@ const WeatherResult = (props) => {
     }else{
         return (
             <div className="nothing">
-                XD
-                test
+                XDD
+                <div className="test">test</div>
             </div>
           );
     }
