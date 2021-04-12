@@ -14,6 +14,7 @@ const WeatherResult = (props) => {
         return (
             <div className="nothing">
                 XD
+                test
             </div>
           );
     }
