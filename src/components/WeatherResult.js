@@ -4,10 +4,11 @@
 
 const WeatherResult = (props) => {
     console.log(props)
-    if(props.data != null){
+    // eslint-disable-next-line eqeqeq
+    if(props.data != null && props.data.cod == 200){
         return (
             <div className="weather_box">
-                {props.data.name}
+                {props.data.city.name}
             </div> 
           );
     }else{

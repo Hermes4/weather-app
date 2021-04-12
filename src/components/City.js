@@ -9,7 +9,7 @@ const City = () => {
         setCityName(e.target.value)
     }
     const CheckWeather = () =>{
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=3addbbcbad994c4e8d2b11350c463c1f`,{
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3addbbcbad994c4e8d2b11350c463c1f`,{
             method: 'GET'
         } )
         .then(response => response.json())
@@ -18,6 +18,7 @@ const City = () => {
             setWeatherData(data);
                 
         })
+        .catch((error) => console.error('Error', error));
     }
 
 
@@ -38,7 +39,7 @@ const City = () => {
         <div className="weather_result" id="weather_result">
             <WeatherResult data={weatherData}/>
         </div>
-     </>     
+     </>
   );
 }
 
