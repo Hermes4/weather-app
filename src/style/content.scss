@@ -1,0 +1,30 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //   background-color: red;
+}
+.weather_box {
+  background-color: rgb(207, 207, 207);
+  height: 80vh;
+  min-height: 20rem;
+  width: 50vw;
+
+  border-radius: 2rem;
+  &_font {
+    font-size: calc(2rem + 20 * ((100vw - 350px) / 680));
+  }
+  .weather_icon {
+    background: white;
+    width: 100%;
+    height: 35%;
+    img {
+      width: 25%;
+      //   min-height: 5rem;
+      min-width: 5rem;
+    }
+  }
+  .temperature {
+    font-size: calc(2rem + 20 * ((100vw - 350px) / 680));
+  }
+}

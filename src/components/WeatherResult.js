@@ -1,15 +1,25 @@
-// import logo from '../logo.svg';
-// import '../style/App.scss';
-// import City from './City';
+import '../style/content.scss';
 
 const WeatherResult = (props) => {
     console.log(props)
     // eslint-disable-next-line eqeqeq
-    if(props.data != null && props.data.cod == 200){
+if(props.actualWeather != null && props.actualWeather.cod == 200 /*&& props.dataWeather != null && props.dataWeather.cod == 200*/){
+    const icon = `../icons/${props.actualWeather.weather[0].icon}.png`;
+    const temperature = Math.round(props.actualWeather.main.temp-273.15)
         return (
-            <div className="weather_box">
-                {props.data.city.name}
-            </div> 
+            <div className="content">
+                <div className="weather_box">
+                    <div className="font weather_box_font">
+                        {props.actualWeather.name}, {props.actualWeather.sys.country}
+                    </div>
+                    <div className="weather_icon" >
+                        <img src={icon} alt="Weather Icon"/>
+                    </div>
+                    <div className="temperature">
+                        {temperature} °C
+                    </div>
+                </div>
+            </div>
           );
     }else{
         return (

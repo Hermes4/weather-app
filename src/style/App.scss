@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(212, 212, 212);
+  background-color: rgb(167, 167, 167);
   min-height: 100vh;
 }
 
@@ -20,4 +20,39 @@
   color: white;
 }
 
+.font {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.btn {
+  background: #56c1df;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 3px solid #56c1df;
+  padding: 0.2rem 0.7rem;
+  margin: 0.5rem;
+  color: white;
+  transition: ease-in-out 0.3s;
+  &:hover {
+    background: white;
+    color: black;
+    // transition: ease-in-out 0.3s;
+  }
+}
+
+input {
+  padding: 0.2rem;
+  border: 3px solid transparent;
+  margin: 0.5rem;
+}
+.input {
+  &_city-name {
+    margin-left: 1rem;
+  }
+  &_label {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
 // color: #61dafb;
