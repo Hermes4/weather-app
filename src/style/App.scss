@@ -1,6 +1,8 @@
+@import "variables";
+
 .App {
   text-align: center;
-  background-color: rgb(167, 167, 167);
+  background-color: var(--background-theme);
   min-height: 100vh;
 }
 
@@ -31,7 +33,7 @@
   font-weight: 600;
   border: 3px solid #56c1df;
   padding: 0.2rem 0.7rem;
-  margin: 0.5rem;
+  margin-left: 1rem;
   color: white;
   transition: ease-in-out 0.3s;
   &:hover {
@@ -39,16 +41,19 @@
     color: black;
     // transition: ease-in-out 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 input {
   padding: 0.2rem;
-  border: 3px solid transparent;
-  margin: 0.5rem;
+  // border: 3px solid transparent;
+  margin: 1rem;
 }
 .input {
   &_city-name {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   &_label {
     font-size: 1.1rem;

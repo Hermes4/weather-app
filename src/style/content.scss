@@ -1,30 +1,88 @@
+@import "variables";
+
 .content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  //   background-color: red;
+  justify-content: center;
+  &_box {
+    display: flex;
+    margin-top: 4rem;
+    background-color: var(--primary-color);
+    border-radius: 2rem 2rem 2rem 2rem;
+    // border: 5px solid silver;
+  }
 }
 .weather_box {
-  background-color: rgb(207, 207, 207);
-  height: 80vh;
-  min-height: 20rem;
-  width: 50vw;
+  // background-color: rgb(207, 207, 207);
+  background-color: var(--primary-color);
+  // height: 35vw;
+  height: max-content;
+  // min-height: 20rem;
+  width: 35vw;
+  border-radius: 2rem 0 0 2rem;
 
-  border-radius: 2rem;
   &_font {
+    color: var(--secondary-color);
     font-size: calc(2rem + 20 * ((100vw - 350px) / 680));
   }
   .weather_icon {
-    background: white;
+    // background: white;
     width: 100%;
-    height: 35%;
     img {
-      width: 25%;
-      //   min-height: 5rem;
+      width: 35%;
       min-width: 5rem;
     }
   }
   .temperature {
+    color: var(--secondary-color);
     font-size: calc(2rem + 20 * ((100vw - 350px) / 680));
+  }
+}
+
+.weather_box_next {
+  // background-color: #282c34;
+  // height: 35vw;
+  height: max-content;
+  // min-height: 20rem;
+  width: 35vw;
+  border-radius: 0 2rem 2rem 0;
+  // border: 2px solid silver;
+  .week_day_row {
+    // background-color: lightgreen;
+    color: var(--secondary-color);
+    padding: 1rem;
+    border-bottom: 2px solid silver;
+    border-left: 2px solid silver;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 675px) {
+  .content {
+    display: block;
+    &_box {
+      display: block;
+      margin-top: 0;
+      background-color: silver;
+      border-radius: 0;
+      border: 0;
+    }
+    .weather_box {
+      margin: 0;
+      margin-top: 1rem;
+      border-radius: 0;
+      width: 100%;
+      &_next {
+        background-color: var(--primary-color);
+        margin: 0;
+        margin-top: 1rem;
+        border-radius: 0;
+        width: 100%;
+        .week_day_row {
+          border-left: 0;
+        }
+      }
+    }
   }
 }

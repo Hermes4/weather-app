@@ -1,7 +1,8 @@
 .header {
+  position: static;
   background-color: #282c34;
   color: white;
-  width: 100vw;
+  // width: 100vw;
   min-height: 1rem;
   text-align: center;
   padding-top: 0.7rem;
@@ -10,5 +11,64 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .input {
+      background-color: transparent;
+      border-bottom: 3px solid white;
+      &_city-name {
+        border: 0;
+        border-radius: 0;
+        background-color: transparent !important;
+        border-bottom: 3px solid white !important;
+        color: white;
+        &:focus {
+          outline: none;
+          background-color: transparent !important;
+          box-shadow: none !important;
+          // border-bottom: 3px solid white !important;
+        }
+      }
+    }
+  }
+}
+
+.button_change_theme {
+  position: absolute;
+  // float: right;
+  margin-left: 90%;
+  margin-top: 0.3rem;
+
+  #img {
+    width: 2.1rem;
+    // float: right;
+    // background-color: red;
+  }
+}
+
+@media (max-width: 675px) {
+  .header {
+    margin: 0;
+    width: auto;
+    .search_city_box {
+      display: block;
+      .input_label {
+        margin: 0;
+      }
+      .input {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .button_check {
+        button {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .button_change_theme {
+    position: static;
+    // float: right;
+    margin-left: 0%;
   }
 }

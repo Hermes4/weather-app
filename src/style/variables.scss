@@ -1,0 +1,17 @@
+$blue_light: #56c1df;
+$blue_dark: #282c34;
+
+$gray_light: silver;
+$white_theme: #edf2fc;
+
+*:root {
+  //   --primary-color: #edf2fc;
+  --primary-color: #e7eefd;
+  --secondary-color: black;
+  --background-theme: rgb(245, 245, 245);
+}
+.dark_theme {
+  --primary-color: #282c34;
+  --secondary-color: #fff;
+  --background-theme: rgb(184, 184, 184);
+}
