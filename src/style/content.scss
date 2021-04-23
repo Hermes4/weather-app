@@ -17,24 +17,43 @@
   // height: 35vw;
   height: max-content;
   // min-height: 20rem;
-  width: 35vw;
+  width: max-content;
+  min-width: 35vw;
+  // min-width: 335px;
+  // min-width: 450px;
+  padding: 1rem;
   border-radius: 2rem 0 0 2rem;
 
   &_font {
     color: var(--secondary-color);
-    font-size: calc(2rem + 20 * ((100vw - 350px) / 680));
+    font-size: calc(2.5rem + 20 * ((100vw - 350px) / 680));
   }
   .weather_icon {
     // background: white;
     width: 100%;
     img {
+      // width: 15rem;
       width: 35%;
-      min-width: 5rem;
+      min-width: 10rem;
     }
   }
   .temperature {
     color: var(--secondary-color);
-    font-size: calc(2rem + 20 * ((100vw - 350px) / 680));
+    &_main {
+      font-size: calc(2.5rem + 20 * ((100vw - 350px) / 680));
+      // font-weight: 500;
+    }
+    &_add {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      margin: 1rem;
+      font-size: calc(1.5rem + 5 * ((100vw - 600px) / 680));
+
+      .feels_like {
+        margin-right: 2rem;
+      }
+    }
   }
 }
 
@@ -48,13 +67,24 @@
   // border: 2px solid silver;
   .week_day_row {
     // background-color: lightgreen;
+    font-size: calc(0.8rem + 5 * ((100vw - 800px) / 680));
+    display: flex;
     color: var(--secondary-color);
-    padding: 1rem;
+    padding: calc(0.9rem + 5 * ((100vw - 800px) / 680));
     border-bottom: 2px solid silver;
     border-left: 2px solid silver;
     &:last-child {
       border-bottom: 0;
     }
+  }
+}
+
+.arrow_down {
+  margin-left: auto;
+  height: 20px;
+  width: 20px;
+  &_color {
+    filter: invert(1);
   }
 }
 
@@ -64,7 +94,7 @@
     &_box {
       display: block;
       margin-top: 0;
-      background-color: silver;
+      background-color: var(--background-theme);
       border-radius: 0;
       border: 0;
     }
@@ -81,6 +111,7 @@
         width: 100%;
         .week_day_row {
           border-left: 0;
+          font-size: calc(1rem + 5 * ((100vw - 800px) / 680));
         }
       }
     }

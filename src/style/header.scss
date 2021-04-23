@@ -67,8 +67,9 @@
   }
 
   .button_change_theme {
-    position: static;
-    // float: right;
-    margin-left: 0%;
+    position: absolute; //static
+    margin-top: -2.1rem;
+    margin-left: 85%;
+    // margin-left: 0%;
   }
 }
