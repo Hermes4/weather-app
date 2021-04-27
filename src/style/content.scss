@@ -12,15 +12,10 @@
   }
 }
 .weather_box {
-  // background-color: rgb(207, 207, 207);
   background-color: var(--primary-color);
-  // height: 35vw;
   height: max-content;
-  // min-height: 20rem;
   width: max-content;
   min-width: 35vw;
-  // min-width: 335px;
-  // min-width: 450px;
   padding: 1rem;
   border-radius: 2rem 0 0 2rem;
 
@@ -29,10 +24,8 @@
     font-size: calc(2.5rem + 20 * ((100vw - 350px) / 680));
   }
   .weather_icon {
-    // background: white;
     width: 100%;
     img {
-      // width: 15rem;
       width: 35%;
       min-width: 10rem;
     }
@@ -58,17 +51,15 @@
 }
 
 .weather_box_next {
-  // background-color: #282c34;
-  // height: 35vw;
   height: max-content;
-  // min-height: 20rem;
-  width: 35vw;
+  // width: max-content;
+  min-width: 40vw;
   border-radius: 0 2rem 2rem 0;
-  // border: 2px solid silver;
   .week_day_row {
-    // background-color: lightgreen;
+    cursor: pointer;
     font-size: calc(0.8rem + 5 * ((100vw - 800px) / 680));
     display: flex;
+    // justify-content: center;
     color: var(--secondary-color);
     padding: calc(0.9rem + 5 * ((100vw - 800px) / 680));
     border-bottom: 2px solid silver;
@@ -76,11 +67,28 @@
     &:last-child {
       border-bottom: 0;
     }
+    &_date {
+      margin-right: 1rem;
+    }
+    &_icon {
+      margin-left: auto;
+      width: calc(1.8rem + 5 * ((100vw - 800px) / 680));
+      margin-bottom: -0.6rem;
+      margin-top: -0.3rem;
+
+      text-align: center;
+    }
+    &_temp {
+      width: 5rem;
+      margin-right: calc(1rem + 120 * ((100vw - 800px) / 900));
+      // font-size: calc(0.8rem + 5 * ((100vw - 800px) / 680));
+    }
   }
 }
 
 .arrow_down {
-  margin-left: auto;
+  // margin-left: auto;
+  justify-content: flex-end;
   height: 20px;
   width: 20px;
   &_color {
@@ -88,7 +96,28 @@
   }
 }
 
-@media (max-width: 675px) {
+.dropDay {
+  display: flex;
+  padding-right: 1rem;
+  border-left: 2px solid silver;
+  color: var(--secondary-color);
+  &_icon {
+    width: 10rem;
+  }
+  &_info {
+    text-align: left;
+    margin-top: 2rem;
+    &_description {
+      font-size: calc(1.5rem + 5 * ((100vw - 600px) / 680));
+    }
+    &_temp {
+      margin-top: 1rem;
+      font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 755px) {
   .content {
     display: block;
     &_box {
@@ -112,6 +141,9 @@
         .week_day_row {
           border-left: 0;
           font-size: calc(1rem + 5 * ((100vw - 800px) / 680));
+          &_icon {
+            left: 50%;
+          }
         }
       }
     }

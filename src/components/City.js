@@ -31,7 +31,7 @@ const City = () => {
     const [actualWeatherData, setActualWeatherData] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
     const [iconTheme, setIconTheme] = useState(dark_mode);
-    const [icon, setIcon] = useState(null);
+    // const [icon, setIcon] = useState(null);
 
     const handleInputCity = (e) =>{
         setCityName(e.target.value)
@@ -41,71 +41,91 @@ const City = () => {
         if(document.body.classList.contains('dark_theme')){
             switch(true){
                 case iconId >= 200 && iconId<=232:
-                    setIcon(stormWhite);
-                break;
+                    return stormWhite
+                    // setIcon(stormWhite);
+                // break;
                 case iconId>=300 && iconId<=321:
                     // setIcon(drizzle)
-                    setIcon(chanceRainWhite);
-                    break;
+                    return chanceRainWhite
+                    // setIcon(chanceRainWhite);
+                    // break;
                 case iconId >=500 && iconId<=531:
-                    setIcon(rainWhite);
-                break;
+                    return rainWhite    
+                    // setIcon(rainWhite);
+                // break;
                 case iconId >= 600 && iconId<=622:
-                    setIcon(snow);
-                break;
+                    return snow
+                    // setIcon(snow);
+                // break;
                 case iconId >= 701 && iconId<=781:
-                    setIcon(fogWhite);
-                break;
+                    return fogWhite
+                    // setIcon(fogWhite);
+                // break;
                 case iconId === 800:
-                    setIcon(clear);
-                break;
+                    return clear
+                    // setIcon(clear);
+                // break;
                 case iconId === 801:
-                    setIcon(mostlySunnyWhite);
-                break;
+                    return mostlySunnyWhite
+                    // setIcon(mostlySunnyWhite);
+                // break;
                 case iconId === 802:
-                    setIcon(mostlyCloudyWhite);
-                break;
+                    return mostlyCloudyWhite
+                    // setIcon(mostlyCloudyWhite);
+                // break;
                 case iconId >= 803 && iconId <=804:
-                    setIcon(cloudyWhite);
-                break;
+                    return cloudyWhite
+                    // setIcon(cloudyWhite);
+                // break;
                 default:
-                    setIcon(undefinedIcon);
-                break;
+                    return undefinedIcon
+                    // setIcon(undefinedIcon);
+                // break;
     
                 }
         }else{
             switch(true){
                 case iconId >= 200 && iconId<=232:
-                    setIcon(storm);
-                break;
+                    return storm
+                    // setIcon(storm);
+                // break;
                 case iconId>=300 && iconId<=321:
                     // setIcon(drizzle)
-                    setIcon(chanceRain);
-                    break;
+                    return chanceRain
+                    // setIcon(chanceRain);
+                    // break;
                 case iconId >=500 && iconId<=531:
-                    setIcon(rain);
-                break;
+                    return rain
+                    // setIcon(rain);
+                // break;
                 case iconId >= 600 && iconId<=622:
-                    setIcon(snow);
-                break;
+                    return snow
+                    // setIcon(snow);
+                // break;
                 case iconId >= 701 && iconId<=781:
-                    setIcon(fog);
-                break;
+                    return fog
+                    // setIcon(fog);
+                // break;
                 case iconId === 800:
-                    setIcon(clear);
-                break;
+                    return clear
+                    // setIcon(clear);
+                // break;
                 case iconId === 801:
-                    setIcon(mostlySunny);
-                break;
+                    return mostlySunny
+                    // setIcon(mostlySunny);
+                // break;
                 case iconId === 802:
-                    setIcon(mostlyCloudy);
-                break;
+                    return mostlyCloudy
+                    // setIcon(mostlyCloudy);
+                // break;
                 case iconId >= 803 && iconId <=804:
-                    setIcon(cloudy);
-                break;
+                    return cloudy
+                    // setIcon(cloudy);
+                // break;
                 default:
-                    setIcon(undefinedIcon);
-                break;
+                    return undefinedIcon
+                    // setIcon(undefinedIcon);
+                // break;
     
                 }
         }
@@ -120,7 +140,7 @@ const City = () => {
         .then(data => {
             setActualWeatherData(data);
             dailyWeather(data);     
-            getWeatherIcon(data.weather[0].id)
+            getWeatherIcon(data.weather[0].id);
 
         })
         .catch((error) => console.error('Error', error));
@@ -173,7 +193,7 @@ const City = () => {
      </div>
 
         <div className="weather_result" id="weather_result">
-            <WeatherResult actualWeather={actualWeatherData} dataWeather={weatherData} icon={icon} />
+            <WeatherResult actualWeather={actualWeatherData} dataWeather={weatherData} icon={actualWeatherData != null && getWeatherIcon(actualWeatherData.weather[0].id)} fIconWeather={getWeatherIcon}/>
         </div>
      </>
   );

@@ -4,7 +4,6 @@ import DayWeather from './DayWeather';
 
 const WeatherResult = (props) => {
     
-
     const [selectedDay, setSelectedDay] = useState(false);
     const [selectedDayDetails, setSelectedDayDetails] = useState(null);
     
@@ -14,7 +13,7 @@ if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWe
     
     const handleSelectedDay = (dayClicked) =>{
         setSelectedDay(prevState => !prevState);
-        setSelectedDayDetails(<DayWeather dataDay={dayClicked} handleClickDeatails={handleSelectedDay} selectedDay={true}/>);
+        setSelectedDayDetails(<DayWeather dataDay={dayClicked} handleClickDeatails={handleSelectedDay} selectedDay={true} fIconWeather={props.fIconWeather}/>);
       }
 
     const temperature = Math.round(props.actualWeather.main.temp-273.15);
@@ -24,7 +23,7 @@ if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWe
     
         const dailyData = props.dataWeather.daily;
         const dailyWeather = dailyData.map(day => (
-        <DayWeather key={day.dt} dataDay={day} handleClickDeatails={handleSelectedDay} selectedDay={false} />
+        <DayWeather key={day.dt} dataDay={day} handleClickDeatails={handleSelectedDay} selectedDay={false} fIconWeather={props.fIconWeather}/>
         ));
 
         return (
