@@ -4,17 +4,16 @@ import DayWeather from './DayWeather';
 
 const WeatherResult = (props) => {
     
-    const [selectedDay, setSelectedDay] = useState(false);
     const [selectedDayDetails, setSelectedDayDetails] = useState(null);
     
     // eslint-disable-next-line eqeqeq
 if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWeather != null ){
-    console.log(props)
-    
+
     const handleSelectedDay = (dayClicked) =>{
-        setSelectedDay(prevState => !prevState);
+        props.setSelectedDay(prevState => !prevState);
         setSelectedDayDetails(<DayWeather dataDay={dayClicked} handleClickDeatails={handleSelectedDay} selectedDay={true} fIconWeather={props.fIconWeather}/>);
       }
+
 
     const temperature = Math.round(props.actualWeather.main.temp-273.15);
     const temperatureFeelsLike = Math.round(props.actualWeather.main.feels_like-273.15);
@@ -26,6 +25,8 @@ if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWe
         <DayWeather key={day.dt} dataDay={day} handleClickDeatails={handleSelectedDay} selectedDay={false} fIconWeather={props.fIconWeather}/>
         ));
 
+        const weatherIcon = props.fIconWeather(props.actualWeather.weather[0].id);
+
         return (
             <div className="content">
                 <div className="content_box">
@@ -34,7 +35,7 @@ if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWe
                             {props.actualWeather.name}, {props.actualWeather.sys.country}
                         </div>
                         <div className="weather_icon" >
-                            <img src={props.icon} alt="Weather Icon"/>
+                            <img src={weatherIcon} alt="Weather Icon"/>
                         </div>
                         <div className="temperature">
                             <div className="temperature_main">
@@ -63,7 +64,7 @@ if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWe
                     </div>
 
                     <div className="weather_box_next">
-                        {selectedDay 
+                        {props.selectedDay 
                         ? 
                         <div>
                             {selectedDayDetails}
@@ -78,11 +79,18 @@ if(props.actualWeather != null && props.actualWeather.cod == 200 && props.dataWe
                 </div>
             </div>
           );
+    }else if(props.actualWeather != null && props.actualWeather.cod === 'error'){
+        return(
+            <div className="message">
+                <div className="message_error font">Check city name</div>
+            </div>
+        );
     }else{
         return (
-            <div className="nothing">
-                XDD
-                <div className="test">test</div>
+            <div className="message">
+                <div className="message_start font">
+                    Enter City :)
+                </div>
             </div>
           );
     }

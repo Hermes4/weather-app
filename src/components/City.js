@@ -31,7 +31,7 @@ const City = () => {
     const [actualWeatherData, setActualWeatherData] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
     const [iconTheme, setIconTheme] = useState(dark_mode);
-    // const [icon, setIcon] = useState(null);
+    const [selectedDay, setSelectedDay] = useState(false);
 
     const handleInputCity = (e) =>{
         setCityName(e.target.value)
@@ -42,90 +42,66 @@ const City = () => {
             switch(true){
                 case iconId >= 200 && iconId<=232:
                     return stormWhite
-                    // setIcon(stormWhite);
-                // break;
+
                 case iconId>=300 && iconId<=321:
-                    // setIcon(drizzle)
                     return chanceRainWhite
-                    // setIcon(chanceRainWhite);
-                    // break;
+
                 case iconId >=500 && iconId<=531:
                     return rainWhite    
-                    // setIcon(rainWhite);
-                // break;
+
                 case iconId >= 600 && iconId<=622:
                     return snow
-                    // setIcon(snow);
-                // break;
+
                 case iconId >= 701 && iconId<=781:
                     return fogWhite
-                    // setIcon(fogWhite);
-                // break;
+
                 case iconId === 800:
                     return clear
-                    // setIcon(clear);
-                // break;
+
                 case iconId === 801:
                     return mostlySunnyWhite
-                    // setIcon(mostlySunnyWhite);
-                // break;
+
                 case iconId === 802:
                     return mostlyCloudyWhite
-                    // setIcon(mostlyCloudyWhite);
-                // break;
+
                 case iconId >= 803 && iconId <=804:
                     return cloudyWhite
-                    // setIcon(cloudyWhite);
-                // break;
+
                 default:
                     return undefinedIcon
-                    // setIcon(undefinedIcon);
-                // break;
     
                 }
         }else{
             switch(true){
                 case iconId >= 200 && iconId<=232:
                     return storm
-                    // setIcon(storm);
-                // break;
+
                 case iconId>=300 && iconId<=321:
-                    // setIcon(drizzle)
                     return chanceRain
-                    // setIcon(chanceRain);
-                    // break;
+
                 case iconId >=500 && iconId<=531:
                     return rain
-                    // setIcon(rain);
-                // break;
+
                 case iconId >= 600 && iconId<=622:
                     return snow
-                    // setIcon(snow);
-                // break;
+
                 case iconId >= 701 && iconId<=781:
                     return fog
-                    // setIcon(fog);
-                // break;
+
                 case iconId === 800:
                     return clear
-                    // setIcon(clear);
-                // break;
+
                 case iconId === 801:
                     return mostlySunny
-                    // setIcon(mostlySunny);
-                // break;
+
                 case iconId === 802:
                     return mostlyCloudy
-                    // setIcon(mostlyCloudy);
-                // break;
+
                 case iconId >= 803 && iconId <=804:
                     return cloudy
-                    // setIcon(cloudy);
-                // break;
+
                 default:
                     return undefinedIcon
-                    // setIcon(undefinedIcon);
-                // break;
     
                 }
         }
@@ -143,7 +119,10 @@ const City = () => {
             getWeatherIcon(data.weather[0].id);
 
         })
-        .catch((error) => console.error('Error', error));
+        .catch((error) => {
+            setActualWeatherData({cod: 'error'});
+            console.error('Error', error)
+    });
     }
  
     const dailyWeather = (data) =>{
@@ -172,7 +151,7 @@ const City = () => {
             onChange={handleInputCity}
             />
             <div className="button_check">
-                <button className="btn" onClick={()=>{actualCheckWeather(); /*checkWeather()*/}}>Check</button>
+                <button className="btn" onClick={()=>{actualCheckWeather(); setSelectedDay(false);/*checkWeather()*/}}>Check</button>
             </div>
             <div className="button_change_theme" onClick={()=>{
 
@@ -181,9 +160,11 @@ const City = () => {
                     if(document.body.classList.contains('dark_theme')){
                         setIconTheme(light_mode);
                         actualWeatherData != null && getWeatherIcon(actualWeatherData.weather[0].id);
+                        // setSelectedDay(false);
                     }else{
                         setIconTheme(dark_mode);
                         actualWeatherData != null && getWeatherIcon(actualWeatherData.weather[0].id);
+                        // setSelectedDay(false);
                     }
                     // document.body.classList.contains('dark_theme') ? light_mode : dark_mode;
                 }}>
@@ -193,7 +174,7 @@ const City = () => {
      </div>
 
         <div className="weather_result" id="weather_result">
-            <WeatherResult actualWeather={actualWeatherData} dataWeather={weatherData} icon={actualWeatherData != null && getWeatherIcon(actualWeatherData.weather[0].id)} fIconWeather={getWeatherIcon}/>
+            <WeatherResult actualWeather={actualWeatherData} dataWeather={weatherData} fIconWeather={getWeatherIcon} selectedDay={selectedDay}  setSelectedDay={setSelectedDay} />
         </div>
      </>
   );

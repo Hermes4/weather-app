@@ -16,7 +16,7 @@
   height: max-content;
   width: max-content;
   min-width: 35vw;
-  padding: 1rem;
+  // padding: 1rem;
   border-radius: 2rem 0 0 2rem;
 
   &_font {
@@ -54,6 +54,8 @@
   height: max-content;
   // width: max-content;
   min-width: 40vw;
+  max-width: 40vw;
+
   border-radius: 0 2rem 2rem 0;
   .week_day_row {
     cursor: pointer;
@@ -97,10 +99,13 @@
 }
 
 .dropDay {
-  display: flex;
+  display: block;
   padding-right: 1rem;
   border-left: 2px solid silver;
   color: var(--secondary-color);
+  &_first_info {
+    display: flex;
+  }
   &_icon {
     width: 10rem;
   }
@@ -111,13 +116,60 @@
       font-size: calc(1.5rem + 5 * ((100vw - 600px) / 680));
     }
     &_temp {
+      font-size: calc(0.8rem + 5 * ((100vw - 800px) / 680));
       margin-top: 1rem;
       font-weight: 400;
     }
   }
+
+  //additional info
+  &_add_info {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-left: calc(1.5rem + 5 * ((100vw - 800px) / 680));
+    text-align: justify;
+    font-size: calc(0.7rem + 5 * ((100vw - 800px) / 680));
+    & > tr {
+      display: flex;
+      & > div {
+        margin: 1rem;
+        margin-left: 0;
+        margin-top: 0;
+      }
+    }
+  }
+
+  //table
+  &_table_temp,
+  .sun_set-rise {
+    font-size: calc(0.7rem + 5 * ((100vw - 800px) / 680));
+    margin-left: calc(1.5rem + 5 * ((100vw - 800px) / 680));
+    tr > th,
+    td {
+      padding: calc(0.2rem + 5 * ((100vw - 800px) / 680));
+    }
+  }
 }
 
-@media (max-width: 755px) {
+.message {
+  width: max-content;
+  margin: auto;
+  // margin-top: -0.5rem;
+  color: white;
+  &_start {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: #56c1df;
+    border: 0.2rem solid #48a5be;
+  }
+  &_error {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: #e4355b;
+    border: 0.2rem solid #db5471;
+  }
+}
+
+@media (max-width: 825px) {
   .content {
     display: block;
     &_box {
@@ -132,7 +184,9 @@
       margin-top: 1rem;
       border-radius: 0;
       width: 100%;
+      padding-bottom: 1rem;
       &_next {
+        max-width: none;
         background-color: var(--primary-color);
         margin: 0;
         margin-top: 1rem;
@@ -142,10 +196,44 @@
           border-left: 0;
           font-size: calc(1rem + 5 * ((100vw - 800px) / 680));
           &_icon {
-            left: 50%;
+            // left: 20%;
+          }
+          &_temp {
+            margin-right: calc(8rem + 120 * ((100vw - 800px) / 800));
           }
         }
       }
     }
+  }
+
+  .dropDay {
+    border-left: 0;
+    padding-left: calc(1.3rem + 200 * ((100vw - 600px) / 800));
+    padding-bottom: 2rem;
+    &_info {
+      &_description {
+        font-size: calc(2rem + 5 * ((100vw - 600px) / 680));
+      }
+      &_temp {
+        font-size: calc(1.1rem + 5 * ((100vw - 800px) / 680));
+      }
+    }
+    &_add_info {
+      // margin-left: 2rem;
+      font-size: calc(1.1rem + 5 * ((100vw - 800px) / 680));
+    }
+
+    &_table_temp,
+    .sun_set-rise {
+      font-size: calc(1.1rem + 5 * ((100vw - 800px) / 680));
+      // margin-left: 2rem;
+      tr > th,
+      td {
+        padding: calc(0.5rem + 5 * ((100vw - 800px) / 680));
+      }
+    }
+  }
+  .sun_set-rise {
+    margin-top: 1rem;
   }
 }
