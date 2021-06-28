@@ -1,0 +1,38 @@
+{
+    "EN": {
+        "header": {
+            "title": "Check weather in your City",
+            "placeholder": "City",
+            "button": "Check"
+        },
+        "main": {
+            "feels_like": "Feels like",
+            "high_temp": "The high will be ",
+            "low_temp": "the low will be ",
+            "rain": "Rain",
+            "wind": "Wind",
+            "pressure": "Pressure",
+            "humidity": "Humidity",
+            "uv": "UV",
+            "dew_point": "Dew point"
+        }
+    },
+    "PL": {
+        "header": {
+            "title": "Sprawdź pogodę w swoim mieście",
+            "placeholder": "Miasto",
+            "button": "Sprawdź"
+        },
+        "main": {
+            "feels_like": "Odczuwalna",
+            "high_temp": "Najwyższa temperatura ",
+            "low_temp": "najniższa temperatura ",
+            "rain": "Deszcz",
+            "wind": "Wiatr",
+            "pressure": "Ciśnienie",
+            "humidity": "Wilgotność",
+            "uv": "UV",
+            "dew_point": "Rosa"
+        }
+    }
+}
